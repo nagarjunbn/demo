@@ -20,5 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/chat', function () {
-    return view('chat.index');
+    $users = App\User::all();
+    return view('chat.index',['users' => $users]);
 });
